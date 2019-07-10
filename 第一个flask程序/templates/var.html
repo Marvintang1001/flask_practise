@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板变量的使用</title>
+</head>
+<body>
+    <h3>dict渲染</h3>
+    <p>用户名： {{ user_dict.username }}</p>
+    <p>城市: {{ user_dict['address.city'] }}</p>
+{# 包含了特殊字符，如一个点，需要用【】括起来 #}
+    <h3>list渲染</h3>
+    <p>{{ list_city[0] }}</p>
+    <p>{{ list_city[2] }}</p>
+    <p>{{ list_city[1] }}</p>
+
+    <h3>复杂的对象</h3>
+    <p>{{ list_obj[0].user }}</p>
+    <p>{{ list_obj[1].user }}</p>
+</body>
+</html>

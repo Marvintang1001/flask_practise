@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用过滤器</title>
+</head>
+<body>
+    <H3>不使用过滤器</H3>
+    {{ hello }}
+
+    <h3>方式一：使用管道连接符实现过滤器</h3>
+    {{ hello|upper }}
+
+    <h3>方式二：使用标签实现过滤器</h3>
+    {% filter upper %}
+        {{ hello }}
+    {% endfilter %}
+
+
+    <h3>默认值过滤器</h3>
+    {{ var|d('我没有', True) }}
+
+    {% autoescape false %}
+        {{ html }}
+        {{ html|escape }}
+    {% endautoescape %}
+
+<h3>自定义过滤器</h3>
+    {{ phone|phone_format }}
+
+{{ '{{' }}
+{% raw %}
+    <H3>不使用过滤器</H3>
+    {{ hello }}
+    <h3>|使用过滤器</h3>
+    {{ hello|upper }}
+    <h3>标签使用过滤器</h3>
+    {% filter upper %}
+        {{ hello }}
+    {% endfilter %}
+{% endraw %}
+</body>
+</html>

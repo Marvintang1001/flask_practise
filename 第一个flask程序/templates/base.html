@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <style type="text/css">
+        .container {
+            width: 800px;
+            height: 500px;
+            margin: 0 auto;
+        }
+        header {
+            background: aqua;
+        }
+        article {
+            background: azure;
+            position: relative;
+        }
+        .left {
+            width: 200px;
+            height: 500px;
+            background: burlywood;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .right {
+            width: 600px;
+            height: 500px;
+            background: coral;
+            position: absolute;
+            left: 200px;
+            top: 0;
+        }
+    </style>
+
+    {% block title %}
+        <title>Title</title>
+    {% endblock %}
+</head>
+<body>
+    <div class="container">
+        <header>
+        页面头部[用户登录信息]
+        </header>
+        <article>
+            <aside class="left">
+                {% block sidebar %}
+                左侧菜单
+                {% endblock %}
+            </aside>
+            <aside class="right">
+                {% block content %}
+                右侧内容区域
+                {% endblock %}
+            </aside>
+        </article>
+    </div>
+
+</body>
+</html>

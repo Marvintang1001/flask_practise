@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .row1 {
+            color: #f00;
+        }
+        .row2 {
+            color: #00f;
+        }
+        .row3 {
+            background: aquamarine;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    {% set class_name = cycler('row1', 'row2', 'row3') %}
+    {% for i in range(100) %}
+        <p class="{{ class_name.next() }}">{{ i }}</p>
+    {% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3> if 的使用</h3>
+{% if var is none %}
+    <h4>var 是 none</h4>
+{% else %}
+    <h4>var  不是 none</h4>
+{% endif %}
+
+{% if a is undefined %}
+    <h4>a 没有定义</h4>
+{% endif %}
+
+
+<h3>for 的使用</h3>
+{% for item in list_city -%}
+    <p>{{ item }}</p>
+{% else -%}
+    <p>空的</p>
+{% endfor -%}
+
+
+{#{% for item in list_obj %}#}
+{#  <p>{{ item.user }}</p> #}  {# 这是取单个字典中的key #}
+{#    <ul>#}
+{#    {% for key,value in item.items() %}#}
+{#        {{ key }} : {{ value }}#}
+{#    {% endfor %}#}
+{#    </ul>#}
+{#{% endfor %}#}
+
+
+{% for item in list_obj %}
+{#    <p>{{ item.user }}</p>  {# 这是取单个字典中的key #}
+    {% for key,value in item.items() %}
+        {% if loop.index > 2 %}
+            {% break %}
+        {% endif %}
+        <p>{{ loop.index }}{{ key }} : {{ value }}</p>
+    {% endfor %}
+{% endfor %}
+
+<h4>set with</h4>
+{% with %}
+    {% set value=100 %}
+    <p>{{ value }}</p>
+{% endwith %}
+{{ value }} --值
+</body>
+</html>

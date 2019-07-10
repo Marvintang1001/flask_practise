@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title_show %}
+    个人中心-----
+{% endblock %}
+{% block title %}
+{#    <title>我的标题</title>#}
+{#    <style type="text/css">#}
+{#    .container .left {#}
+{#        background: #f00;#}
+{#        color: #fff;#}
+{#    }#}
+{#    </style>#}
+    {{ self.title_show() }}
+{% endblock %}
+{% block content %}
+    <p>
+    {{ self.title_show() }}
+    </p>
+    {{ super() }}
+    新的内容
+
+    {% include 'footer.html' without context %}
+{% endblock %}

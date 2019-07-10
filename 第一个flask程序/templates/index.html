@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>欢迎, {{ g.user }}</h3>
+    {{ config }}
+
+    {% macro input(type_name, name, value='') %}
+        <input type="{{ type_name }}" name="{{ name }}" value="{{ value }}">
+    {% endmacro %}
+
+    <!-- <input type="text" name="username" value="admin"> -->
+    {{ input('text', 'username', 'admin')  }}
+
+    <h3>number输入</h3>
+    {{ input('number', 'age') }}
+
+    {% import 'forms.html' as forms %}
+    <h3>邮件地址输入</h3>
+    {{ forms.input('email', 'email', 'example@qq.com') }}
+
+    {% from 'forms.html' import input as my_input %}
+    {{ my_input('password', 'passowrd') }}
+</body>
+</html>
